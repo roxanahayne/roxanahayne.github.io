@@ -9,11 +9,27 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'AW-11477421029');
+</script>
+<!-- Event snippet for Test Tag conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-11477421029/Jj7RCKyhk6EZEOWX7uAq',
+      'transaction_id': '',
+      'event_callback': callback
+  });
+  return false;
+}
 </script>
 <body>
 <h1>Test</h1>
-<button type="button">click for conversion</button>
+<button type="button" onclick="gtag_report_conversion()">click for conversion</button>
 </body>
 </html>
